@@ -142,19 +142,20 @@ if [ -z "$SCRIPT_LOGGING" ]; then
 
     # Check if this is an interactive shell (don't record scp/sftp transfers)
     if [[ $- == *i* ]]; then
+    
+        # 1. ENSURE THE DIRECTORY EXISTS (This is the new part)
+        # -p creates parent dirs if needed and doesn't complain if it exists
+        mkdir -p "$HOME/.terminal_logs"
 
-        # 1. Create a unique filename with Date and Time
-        # Format: YYYY-MM-DD_Hour-Minute-Second.log
+        # 2. Create a unique filename with Date and Time
         LOGFILE="$HOME/.terminal_logs/$(date +%Y-%m-%d_%H-%M-%S).log"
 
-        # 2. Set the flag so the child shell knows it's being recorded
+        # 3. Set the flag so the child shell knows it's being recorded
         export SCRIPT_LOGGING="true"
 
-        # 3. Start recording
-        # -q : Quiet mode (don't print "Script started...")
-        # -f : Flush output immediately (saves data even if terminal crashes)
-        # exec : Replaces the current shell with the recording shell
-        #        (so typing 'exit' closes the window, not just the recording)
+        # 4. Start recording
+        # -q : Quiet mode
+        # -f : Flush output immediately
         exec script -q -f "$LOGFILE"
     fi
 fi
