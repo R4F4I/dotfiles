@@ -7,7 +7,7 @@
 To set up your environment on a fresh Linux install, run this single command:
 
 ```bash
-git clone [https://github.com/R4F4I/dotfiles.git](https://github.com/R4F4I/dotfiles.git) && cd dotfiles && chmod +x install.sh && ./install.sh
+git clone https://github.com/R4F4I/dotfiles.git && cd dotfiles && chmod +x install.sh && ./install.sh
 
 ```
 
