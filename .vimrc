@@ -3,6 +3,7 @@ syntax on                   " Enable syntax highlighting based on terminal color
 set relativenumber                  " Show line numbers
 set number                  " Show line numbers
 set cursorline              " Highlight the current line
+highlight CursorLine cterm=NONE ctermbg=236 gui=NONE guibg=#2d3139
 set showmatch               " Highlight matching brackets [] {} ()
 
 " --- SHORTCUTS ---
